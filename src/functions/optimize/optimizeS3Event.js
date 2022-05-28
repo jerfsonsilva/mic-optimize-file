@@ -11,7 +11,7 @@ module.exports.handler = async(event) => {
             statusCode: 301
         }
     } catch (error) {
-        LoggerService.error('Error optimize', error)
+        LoggerService.error('Error optimizeS3Event', error)
         return {
             statusCode: 400,
             error
