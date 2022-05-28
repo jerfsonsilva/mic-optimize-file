@@ -1,6 +1,6 @@
 'use strict';
-const LoggerService = require('../services/logger.service');
-const OpmizeImage = require('../services/optimize.service');
+const LoggerService = require('../../services/logger.service');
+const OpmizeImage = require('../../services/optimize.service');
 
 module.exports.handler = async(event) => {
     try {
