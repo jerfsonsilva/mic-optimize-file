@@ -1,62 +1,36 @@
 {
-  "body": "{\"message\": \"hello world\"}",
-  "resource": "/{proxy+}",
-  "path": "/path/to/resource",
-  "httpMethod": "POST",
-  "isBase64Encoded": false,
-  "queryStringParameters": {
-    "foo": "bar"
-  },
-  "pathParameters": {
-    "proxy": "/path/to/resource"
-  },
-  "stageVariables": {
-    "baz": "qux"
-  },
-  "headers": {
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Encoding": "gzip, deflate, sdch",
-    "Accept-Language": "en-US,en;q=0.8",
-    "Cache-Control": "max-age=0",
-    "CloudFront-Forwarded-Proto": "https",
-    "CloudFront-Is-Desktop-Viewer": "true",
-    "CloudFront-Is-Mobile-Viewer": "false",
-    "CloudFront-Is-SmartTV-Viewer": "false",
-    "CloudFront-Is-Tablet-Viewer": "false",
-    "CloudFront-Viewer-Country": "US",
-    "Host": "1234567890.execute-api.us-east-1.amazonaws.com",
-    "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Custom User Agent String",
-    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
-    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
-    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
-    "X-Forwarded-Port": "443",
-    "X-Forwarded-Proto": "https"
-  },
-  "requestContext": {
-    "accountId": "123456789012",
-    "resourceId": "123456",
-    "stage": "prod",
-    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
-    "requestTime": "09/Apr/2015:12:34:56 +0000",
-    "requestTimeEpoch": 1428582896000,
-    "identity": {
-      "cognitoIdentityPoolId": null,
-      "accountId": null,
-      "cognitoIdentityId": null,
-      "caller": null,
-      "accessKey": null,
-      "sourceIp": "127.0.0.1",
-      "cognitoAuthenticationType": null,
-      "cognitoAuthenticationProvider": null,
-      "userArn": null,
-      "userAgent": "Custom User Agent String",
-      "user": null
-    },
-    "path": "/prod/path/to/resource",
-    "resourcePath": "/{proxy+}",
-    "httpMethod": "POST",
-    "apiId": "1234567890",
-    "protocol": "HTTP/1.1"
-  }
+    "Records": [{
+        "eventVersion": "2.1",
+        "eventSource": "aws:s3",
+        "awsRegion": "us-east-2",
+        "eventTime": "2022-05-28T13:14:19.228Z",
+        "eventName": "ObjectCreated:Put",
+        "userIdentity": {
+            "principalId": "A1KTPDRIMOZNAB"
+        },
+        "requestParameters": {
+            "sourceIPAddress": "177.137.195.213"
+        },
+        "responseElements": {
+            "x-amz-request-id": "95DP2TWKZ4CC6ZQ6",
+            "x-amz-id-2": "4iBYRFy1uUyFKQs8PUaRBPoV4gZEIJsXqxW2XYXB+tjiJb6h1ZApvTHyCMLMdSuDuFpisOYmK2BoGIOe8RmQuE7nNHHR30sn"
+        },
+        "s3": {
+            "s3SchemaVersion": "1.0",
+            "configurationId": "mic-optimize-file-dev-optimize-8dccfefda3ac9a0f11def23a9c051bfc",
+            "bucket": {
+                "name": "mic-otimize-file",
+                "ownerIdentity": {
+                    "principalId": "A1KTPDRIMOZNAB"
+                },
+                "arn": "arn:aws:s3:::mic-otimize-file"
+            },
+            "object": {
+                "key": "uploads/Screenshot+from+2022-04-11+09-57-53.png",
+                "size": 479224,
+                "eTag": "3536ae4c89428d3b3f0fe2447243a6c3",
+                "sequencer": "006292202B294AA570"
+            }
+        }
+    }]
 }
