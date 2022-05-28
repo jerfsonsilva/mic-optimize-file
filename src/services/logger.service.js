@@ -1,4 +1,4 @@
-class LoggerService {
+module.exports = class LoggerService {
     constructor(prefix) {
         this.prefix = prefix
     }
@@ -18,4 +18,3 @@ class LoggerService {
         return `${process.env.prefixApp}::${this.prefix}::${title}::`
     }
 }
-module.exports = new LoggerService()
