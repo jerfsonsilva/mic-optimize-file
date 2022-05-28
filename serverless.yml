@@ -18,8 +18,10 @@ provider:
             - 's3:DeleteObjectVersion'
           Resource: 
             - "arn:aws:s3:::*"
+  environment:
+    prefixApp: MIC-OPTIMIZE-FILE
+
 custom:
-  prefixApp: MIC-OPTIMIZE-FILE
   funcDir: src/functions
 
 functions:
