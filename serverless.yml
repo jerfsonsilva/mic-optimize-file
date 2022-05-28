@@ -2,6 +2,9 @@ service: mic-optimize-file
 
 frameworkVersion: '3'
 
+plugins:
+  - serverless-localstack
+
 provider:
   name: aws
   runtime: nodejs14.x
@@ -23,6 +26,17 @@ provider:
 
 custom:
   funcDir: src/functions
+  localstack:
+    debug: true
+    stages:
+      - local
+    host: http://localhost  
+    edgePort: 4566 
+    autostart: true  
+    lambda:
+      mountCode: True
+    docker:
+      sudo: True
 
 functions:
   optimize: ${file(${self:custom.funcDir}/optimize/_handlers.yml):optimize}

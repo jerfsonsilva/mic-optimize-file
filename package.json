@@ -1,6 +1,8 @@
 {
     "dependencies": {
         "eslint": "^8.16.0",
+        "nodemon": "^2.0.16",
+        "serverless-localstack": "^0.4.36",
         "sharp": "^0.30.5"
     },
     "name": "mic-optimize-file",
@@ -9,6 +11,10 @@
     "license": "MIT",
     "scripts": {
         "predeploy": "yarn",
-        "deploy": "serverless deploy"
+        "build": "serverless webpack --stage local",
+        "deploy": "serverless deploy --stage local",
+        "deploy-prod": "serverless deploy --stage production",
+        "watch": "nodemon -w src -e '.*' -x 'npm run build'",
+        "start": "npm run deploy && npm run watch"
     }
 }

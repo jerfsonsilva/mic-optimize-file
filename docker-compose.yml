@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - AWS_DEFAULT_REGION=us-east-2
+      - AWS_SDK_LOAD_CONFIG=1
+      - EDGE_PORT=4566
+      - SERVICES=lambda,s3,cloudformation,sts
+    ports:
+      - '5566-5597:5566-5597'
+    volumes:
+      - "${TEMPDIR:-/tmp/localstack}:/temp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
