@@ -1,0 +1,10 @@
+{
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.enable": true,
+    "eslint.debug": true,
+    "eslint.validate": [
+        { "language": "javascript", "autoFix": true }
+    ],
+     "eslint.workingDirectories": ["./src"],
+}

@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "eslint": "^8.16.0",
         "sharp": "^0.30.5"
     },
     "name": "mic-optimize-file",
