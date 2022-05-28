@@ -1,0 +1,13 @@
+{
+    "dependencies": {
+        "sharp": "^0.30.5"
+    },
+    "name": "mic-optimize-file",
+    "version": "1.0.0",
+    "main": "handler.js",
+    "license": "MIT",
+    "scripts": {
+        "predeploy": "yarn",
+        "deploy": "serverless deploy"
+    }
+}

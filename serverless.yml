@@ -1,0 +1,30 @@
+service: mic-optimize-file
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-2
+  memorySize: 256
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 's3:GetObject'
+            - 's3:PutObject'
+            - 's3:DeleteObject'
+            - 's3:DeleteObjectVersion'
+          Resource: 
+            - "arn:aws:s3:::*"
+custom:
+  prefixApp: MIC-OPTIMIZE-FILE
+  funcDir: src/functions
+
+functions:
+  optimize: ${file(${self:custom.funcDir}/optimize/_handlers.yml):optimize}
+
+          
+
+    

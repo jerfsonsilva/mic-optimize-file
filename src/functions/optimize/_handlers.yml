@@ -1,0 +1,19 @@
+optimize:
+    handler: ${self:custom.funcDir}/optimize/optimizeS3Event.handler
+    environment:
+      bucket: mic-otimize-file
+    events:
+      - s3:
+          bucket: mic-otimize-file
+          event: s3:ObjectCreated:*
+          existing: true
+          rules:
+            - prefix: uploads/
+            - suffix: .jpg
+      - s3:
+          bucket: mic-otimize-file
+          event: s3:ObjectCreated:*
+          existing: true
+          rules:
+            - prefix: uploads/
+            - suffix: .png
