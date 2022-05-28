@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  github-actions-with-aws-sam
+
+  Sample SAM Template for github-actions-with-aws-sam
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  OptimizeFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: mic-otimize/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Events:
+        Optimize:
+          Type: S3
+          Properties:
+            Bucket: mic-otimize-file
+            Events: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                - Name: uploads/|.jpg
+                - Name: uploads/|.png
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  Optimize:
+    Description: "Optimize Lambda Function ARN"
+    Value: !GetAtt Optimize.Arn
+  OptimizeFunctionIamRole:
+    Description: "Implicit IAM Role created for optimize function"
+    Value: !GetAtt OptimizeFunctionRole.Arn
