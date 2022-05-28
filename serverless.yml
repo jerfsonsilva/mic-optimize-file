@@ -32,7 +32,6 @@ custom:
     debug: true
     stages:
       - local
-      - dev
     host: http://localhost  
     edgePort: 4566 
     autostart: false  
