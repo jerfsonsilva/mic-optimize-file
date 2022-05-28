@@ -24,6 +24,7 @@ provider:
             - "arn:aws:s3:::*"
   environment:
     prefixApp: MIC-OPTIMIZE-FILE
+    STAGE: ${self:provider.stage}
 
 custom:
   funcDir: src/functions
@@ -31,6 +32,7 @@ custom:
     debug: true
     stages:
       - local
+      - dev
     host: http://localhost  
     edgePort: 4566 
     autostart: false  
@@ -38,6 +40,9 @@ custom:
       mountCode: True
     docker:
       sudo: True
+  serverless-offline:
+    port: 4000
+    stage: dev
 
 functions:
   optimize: ${file(${self:custom.funcDir}/optimize/_handlers.yml):optimize}
