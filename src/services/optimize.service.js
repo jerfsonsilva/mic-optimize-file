@@ -23,12 +23,14 @@ module.exports = class OpmizeImage {
                 .toFormat('jpeg', { progressive: true, quality: 50 })
                 .toBuffer()
 
-            await S3.putObject({
+            const result = await S3.putObject({
                 Body: opmizedImage,
                 Bucket: process.env.bucket,
                 ContentType: 'image/jpeg',
                 Key: `compressed/${basename(key, extname(key))}.jpg`
             }).promise()
+
+            LoggerService.info(result)
 
             await S3.deleteObject({
                 Bucket: process.env.bucket,
