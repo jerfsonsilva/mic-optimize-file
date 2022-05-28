@@ -10,11 +10,11 @@ module.exports = class OpmizeImage {
         this.records = records
     }
     async optimizer() {
-        const logPrefix = 'optimizer'
+        const log = new LoggerService('optimizerService.optimizer')
         return Promise.all(this.records.map(async record => {
             const key = decodeURIComponent(record.s3.object.key.replace(/\+/g, ' '))
 
-            LoggerService.info(logPrefix, key)
+            log.info({ msg: "Key S3", key })
 
             const image = await S3.getObject({
                 Bucket: process.env.bucket,
@@ -33,7 +33,7 @@ module.exports = class OpmizeImage {
                 Key: `compressed/${basename(key, extname(key))}.jpg`
             }).promise()
 
-            LoggerService.info(logPrefix, result)
+            log.info({ msg: "image optimized", result })
 
             await S3.deleteObject({
                 Bucket: process.env.bucket,

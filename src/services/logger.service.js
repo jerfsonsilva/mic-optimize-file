@@ -1,18 +1,21 @@
 class LoggerService {
-    warn(prefix, data) {
-        console.warn(this._prefix('warn', prefix), JSON.stringify(data))
+    constructor(prefix) {
+        this.prefix = prefix
     }
-    info(prefix, data) {
-        console.info(this._prefix('info', prefix), JSON.stringify(data))
+    warn(data) {
+        console.warn(this._prefix(title), data)
     }
-    trace(prefix, data) {
-        console.trace(this._prefix('trace', prefix), JSON.stringify(data))
+    info(data) {
+        console.info(this._prefix(title), data)
     }
-    error(prefix, data) {
-        console.error(this._prefix('error', prefix), JSON.stringify(data))
+    trace(data) {
+        console.trace(this._prefix(title), data)
     }
-    _prefix(type, prefix) {
-        return `${process.env.prefixApp}::${type}::${prefix}`
+    error(data) {
+        console.error(this._prefix(title), data)
+    }
+    _prefix(title) {
+        return `${process.env.prefixApp}::${this.prefix}::${title}::`
     }
 }
 module.exports = new LoggerService()
