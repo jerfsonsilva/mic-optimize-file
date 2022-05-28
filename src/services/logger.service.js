@@ -3,18 +3,18 @@ module.exports = class LoggerService {
         this.prefix = prefix
     }
     warn(data) {
-        console.warn(this._prefix(title), data)
+        console.warn(this._prefix(), data)
     }
     info(data) {
-        console.info(this._prefix(title), data)
+        console.info(this._prefix(), data)
     }
     trace(data) {
-        console.trace(this._prefix(title), data)
+        console.trace(this._prefix(), data)
     }
     error(data) {
-        console.error(this._prefix(title), data)
+        console.error(this._prefix(), data)
     }
-    _prefix(title) {
-        return `${process.env.prefixApp}::${this.prefix}::${title}::`
+    _prefix() {
+        return `${process.env.prefixApp}::${this.prefix}::`
     }
 }
